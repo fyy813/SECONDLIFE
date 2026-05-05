@@ -1,0 +1,45 @@
+<!-- Sidebar -->
+<div class="sidebar">
+    <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+            <a href="{{ url_for('admin_dashboard') }}" {% if active_page=='admin_dashboard' %}class="active" {% endif %}>
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="#">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <ul class="sidebar-submenu" {% if active_page in ['admin_view_products', 'admin_product_upload_approval' ] %}style="display: block;" {% endif %}>
+                <li>
+                    <a href="{{ url_for('admin_view_products') }}" {% if active_page=='admin_view_products' %}class="active" {% endif %}>View</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('admin_product_upload_approval') }}" {% if active_page=='admin_product_upload_approval' %}class="active" {% endif %}>Upload Request</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="{{ url_for('user_management') }}" {% if active_page=='user_management' %}class="active" {% endif %}>
+                <i class="fa-solid fa-users-gear"></i>
+                <span>User Management</span>
+            </a>
+        </li>
+        <li class="sidebar-menu-item">
+            <a href="{{ url_for('order_management') }}" {% if active_page=='order_management' %}class="active" {% endif %}>
+                <i class="fas fa-shopping-bag"></i>
+                <span>Order Management</span>
+            </a>
+        </li>
+        
+        <li class="sidebar-menu-item">
+            <a href="{{ url_for('admin_profile', username=current_user.username) }}" {% if active_page=='admin_profile' %}class="active" {% endif %}>
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+            </a>
+        </li>
+        
+    </ul>
+</div>
